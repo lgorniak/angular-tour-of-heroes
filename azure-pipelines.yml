@@ -1,0 +1,26 @@
+trigger:
+  branches:
+    include:
+      - master
+      - initial
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  AngularDirectory: "src"
+
+steps:
+  - task: Npm@1
+    displayName: "Restore NPM Packages"
+    inputs:
+      command: ci
+      workingDir: $(AngularDirectory)
+
+  - task: Npm@1
+    displayName: "npm build"
+    inputs:
+      command: custom
+      customCommand: "run build -- --configuration production"
+      workingDir: $(AngularDirectory)
+
