@@ -1,22 +1,40 @@
-# Node.js with Angular
-# Build a Node.js project that uses Angular.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
-
 trigger:
-- '*'
+  branches:
+    include:
+      - master
+      - initial
 
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '14.x'
-  displayName: 'Install Node.js'
+variables:
+  AngularDirectory: "src"
 
-- script: |
-    npm install -g @angular/cli
-    npm install
-    ng build --prod
-  displayName: 'npm install and build'
+steps:
+  - task: Npm@1
+    displayName: "Restore NPM Packages"
+    inputs:
+      command: ci
+      workingDir: $(AngularDirectory)
+
+  - task: Npm@1
+    displayName: "npm build"
+    inputs:
+      command: custom
+      customCommand: "run build -- --configuration production"
+      workingDir: $(AngularDirectory)
+
+  - task: Npm@1
+    displayName: "Karma Tests"
+    inputs:
+      command: custom
+      customCommand: "test"
+      workingDir: $(AngularDirectory)
+
+  - task: PublishTestResults@2
+    displayName: "Publish test results"
+    condition: succeededOrFailed()
+    inputs:
+      testRunner: JUnit
+      testResultsFiles: "**/.reports/test-results.xml"
+      failTaskOnFailedTests: true
