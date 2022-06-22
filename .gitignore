@@ -28,6 +28,9 @@ yarn-error.log
 !.vscode/extensions.json
 .history/*
 
+# Built Visual Studio Code Extensions
+*.vsix
+
 # Miscellaneous
 /.angular/cache
 .sass-cache/
