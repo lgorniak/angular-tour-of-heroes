@@ -22,10 +22,14 @@ yarn-error.log
 
 # Visual Studio Code
 .vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 .history/*
 
-# Built Visual Studio Code Extensions
-*.vsix
+# Visual Studio
+.vs/*
 
 # Miscellaneous
 /.angular/cache
