@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { AppComponent } from 'src/app/app.component';
-
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { HeroesComponent } from './heroes.component';
 
 describe('HeroesComponent', () => {
@@ -10,6 +9,7 @@ describe('HeroesComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [HeroesComponent],
+      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
 
     fixture = TestBed.createComponent(HeroesComponent);
