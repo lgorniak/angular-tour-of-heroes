@@ -23,11 +23,11 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('Tour of Heroes');
   });
 
-  it('should render title inside an h1 tag', () => {
+  it('should render title within HTML object with .appTitle class', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain(
+    expect(compiled.querySelector('.app_title')?.textContent).toContain(
       'Tour of Heroes'
     );
   });
