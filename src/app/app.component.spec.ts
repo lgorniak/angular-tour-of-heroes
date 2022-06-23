@@ -23,7 +23,7 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('Tour of Heroes');
   });
 
-  it('should render title within HTML object with .appTitle class', () => {
+  it('should render title within HTML object with .app_title class', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
