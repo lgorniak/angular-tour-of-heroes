@@ -4,16 +4,10 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './components/heroes/heroes.component';
-<<<<<<< HEAD
 import { HeroDetailComponent } from './components/hero-detail/hero-detail.component';
 
 @NgModule({
   declarations: [AppComponent, HeroesComponent, HeroDetailComponent],
-=======
-
-@NgModule({
-  declarations: [AppComponent, HeroesComponent],
->>>>>>> develop
   imports: [BrowserModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
