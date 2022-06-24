@@ -1,14 +1,14 @@
-import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './components/heroes/heroes.component';
 import { FormsModule } from '@angular/forms';
+import { HeroDetailComponent } from './components/hero-detail/hero-detail.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [FormsModule],
-      declarations: [AppComponent, HeroesComponent],
+      declarations: [AppComponent, HeroesComponent, HeroDetailComponent],
     }).compileComponents();
   });
 
