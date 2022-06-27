@@ -17,8 +17,4 @@ export class HeroService {
       observer.complete();
     });
   }
-
-  addMessage(text: string) {
-    this.messageService.add(text);
-  }
 }
