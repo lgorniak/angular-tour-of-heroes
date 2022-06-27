@@ -10,12 +10,11 @@ import { HEROES } from './../mock.heroes';
 export class HeroService {
   constructor(private messageService: MessageService) {}
 
-  getHeroesAsync(): Observable<Hero[]> {
+  getHeroes(): Observable<Hero[]> {
     return new Observable<Hero[]>((observer) => {
-      setTimeout(() => {
-        observer.next(HEROES);
-        this.messageService.add('HeroService: fetched heroes');
-      }, 1000);
+      observer.next(HEROES);
+      this.messageService.add('HeroService: fetched heroes');
+      observer.complete();
     });
   }
 }
