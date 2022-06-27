@@ -1,4 +1,4 @@
-import { Inject, Injectable, NgModule } from '@angular/core';
+import { Injectable, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HeroesComponent } from './components/heroes/heroes.component';
 
