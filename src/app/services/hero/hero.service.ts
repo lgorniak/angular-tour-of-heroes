@@ -12,10 +12,13 @@ export class HeroService {
 
   getHeroesAsync(): Observable<Hero[]> {
     return new Observable<Hero[]>((observer) => {
-      setTimeout(() => {
-        observer.next(HEROES);
-        this.messageService.add('HeroService: fetched heroes');
-      }, 1000);
+      observer.next(HEROES);
+      this.messageService.add('HeroService: fetched heroes');
+      observer.complete();
     });
+  }
+
+  addMessage(text: string) {
+    this.messageService.add(text);
   }
 }
