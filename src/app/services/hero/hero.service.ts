@@ -17,4 +17,12 @@ export class HeroService {
       observer.complete();
     });
   }
+
+  getHero(id: number): Observable<Hero> {
+    return new Observable<Hero>((observer) => {
+      observer.next(HEROES.find((hero) => hero.id === id));
+      this.messageService.add(`HeroService: fetched hero id=${id}`);
+      observer.complete();
+    });
+  }
 }

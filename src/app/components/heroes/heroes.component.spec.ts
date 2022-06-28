@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HeroesComponent } from './heroes.component';
-import { FormsModule } from '@angular/forms';
-import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
+import { AppRoutingModule } from 'src/app/app-routing.module';
 
 describe('HeroesComponent', () => {
   let component: HeroesComponent;
@@ -9,8 +8,8 @@ describe('HeroesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FormsModule],
-      declarations: [HeroesComponent, HeroDetailComponent],
+      imports: [AppRoutingModule],
+      declarations: [HeroesComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(HeroesComponent);
