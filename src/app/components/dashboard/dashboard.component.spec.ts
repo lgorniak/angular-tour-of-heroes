@@ -1,16 +1,24 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { AppRoutingModule } from 'src/app/app-routing.module';
 import { DashboardComponent } from './dashboard.component';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { HeroService } from 'src/app/services/hero/hero.service';
+import { of } from 'rxjs';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
   let fixture: ComponentFixture<DashboardComponent>;
 
   beforeEach(async () => {
+    const heroServiceSpy = jasmine.createSpyObj<HeroService>(['getHeroes']);
+    heroServiceSpy.getHeroes.and.returnValue(of([]));
+
     await TestBed.configureTestingModule({
       declarations: [DashboardComponent],
-      imports: [AppRoutingModule, HttpClientTestingModule],
+      providers: [
+        {
+          provide: HeroService,
+          useValue: heroServiceSpy,
+        },
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(DashboardComponent);
