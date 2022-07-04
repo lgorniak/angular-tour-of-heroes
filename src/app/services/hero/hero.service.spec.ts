@@ -18,4 +18,13 @@ describe('HeroService', () => {
   it('should be created', () => {
     expect(heroService).toBeTruthy();
   });
+
+  // it('should return not empty result', () => {
+  //   let heroResultLength = 0;
+  //   heroService.getHeroes().subscribe((heroes) => {
+  //     heroResultLength = heroes.length;
+  //   });
+  //   expect(heroResultLength).toBeGreaterThan(0);
+  //expect(heroService.getHeroes().subscribe(()=>{})).toBeTruthy();
+  //});
 });
