@@ -1,8 +1,17 @@
-<div *ngIf="hero">
-  <h2>{{ hero.name | uppercase }} Details</h2>
-  <div>id: {{ hero.id }}</div>
-  <div>
-    <label for="hero-name">Hero name: </label>
-    <input id="hero-name" [(ngModel)]="hero.name" placeholder="name" />
+<ng-container *ngIf="hero; then heroExists; else noHero"> </ng-container>
+
+<ng-template #heroExists>
+  <div *ngIf="hero">
+    <h2>{{ hero.name | uppercase }} Details</h2>
+    <div>id: {{ hero.id }}</div>
+    <div>
+      <label for="hero-name">Hero name: </label>
+      <input id="hero-name" [(ngModel)]="hero.name" placeholder="name" />
+    </div>
+    <button type="button" (click)="goBack()">go back</button>
   </div>
-</div>
+</ng-template>
+
+<ng-template #noHero>
+  <div>Hero not found</div>
+</ng-template>
