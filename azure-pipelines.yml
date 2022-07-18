@@ -24,3 +24,8 @@ steps:
       command: custom
       customCommand: "run build -- --configuration production"
       workingDir: $(AngularDirectory)
+
+  - task: CmdLine@2
+    displayName: "Run Angular tests"
+    inputs:
+      script: "ng test --browsers=ChromeHeadless --code-coverage --watch=false"
