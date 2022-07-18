@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { HeroService } from './hero.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { MessageService } from '../messages/message.service';
+import { ErrorService } from '../error/error.service';
 
 describe('HeroService', () => {
   let heroService: HeroService;
@@ -9,7 +10,7 @@ describe('HeroService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [HeroService, MessageService],
+      providers: [HeroService, MessageService, ErrorService],
     });
 
     heroService = TestBed.inject(HeroService);
@@ -18,13 +19,4 @@ describe('HeroService', () => {
   it('should be created', () => {
     expect(heroService).toBeTruthy();
   });
-
-  // it('should return not empty result', () => {
-  //   let heroResultLength = 0;
-  //   heroService.getHeroes().subscribe((heroes) => {
-  //     heroResultLength = heroes.length;
-  //   });
-  //   expect(heroResultLength).toBeGreaterThan(0);
-  //expect(heroService.getHeroes().subscribe(()=>{})).toBeTruthy();
-  //});
 });

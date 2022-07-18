@@ -10,6 +10,7 @@ import { Hero } from '../../interfaces/hero';
 export class HeroesComponent implements OnInit {
   heroes: Hero[] = [];
   selectedHero?: Hero;
+  heroName: string = '';
 
   constructor(private heroService: HeroService) {}
 
@@ -28,13 +29,22 @@ export class HeroesComponent implements OnInit {
     if (!name) {
       return;
     }
+    this.heroName = name;
     this.heroService.addHero({ name } as Hero).subscribe((hero) => {
       this.heroes.push(hero);
     });
   }
 
+  isHeroNameInvalid(heroName: string | undefined): boolean {
+    if (typeof heroName === 'string') {
+      return heroName.trim().length === 0;
+    }
+    return true;
+  }
+
   delete(hero: Hero): void {
-    this.heroes = this.heroes.filter((h) => h !== hero);
-    this.heroService.deleteHero(hero.id).subscribe();
+    this.heroService.deleteHero(hero.id).subscribe(() => {
+      this.heroes = this.heroes.filter((h) => h !== hero);
+    });
   }
 }
