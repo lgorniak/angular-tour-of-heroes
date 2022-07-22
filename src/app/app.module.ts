@@ -13,6 +13,9 @@ import { MessagesComponent } from './components/messages/messages.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HeroSearchComponent } from './components/hero-search/hero-search.component';
+import { StoreModule } from '@ngrx/store';
+import { heroesReducer } from './root-store/heroes/heroes.reducer';
+import { HeroesNgrxComponent } from './components/heroes-ngrx/heroes-ngrx.components';
 
 @NgModule({
   declarations: [
@@ -22,6 +25,7 @@ import { HeroSearchComponent } from './components/hero-search/hero-search.compon
     MessagesComponent,
     DashboardComponent,
     HeroSearchComponent,
+    HeroesNgrxComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +35,7 @@ import { HeroSearchComponent } from './components/hero-search/hero-search.compon
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
       dataEncapsulation: false,
     }),
+    StoreModule.forRoot(heroesReducer),
   ],
 
   providers: [],

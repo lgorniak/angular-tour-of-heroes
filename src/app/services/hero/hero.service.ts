@@ -4,7 +4,7 @@ import { catchError, tap } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MessageService } from '../../services/messages/message.service';
-import { Hero } from '../../interfaces/hero';
+import { Hero } from '../../models/hero';
 import { ErrorService } from '../error/error.service';
 
 @Injectable({
